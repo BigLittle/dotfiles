@@ -1,26 +1,53 @@
---[[ Global ]]--
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+-- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---[[ Option ]]--
+-- Important
+-- Moving Around, Searching and Patterns
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
+-- Tags
+-- Displaying Text
+vim.opt.scrolloff = 3
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.numberwidth = 6
 
-vim.o.incsearch = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
+-- Syntax, Highlighting and Spelling
+vim.opt.termguicolors = true
+vim.opt.cursorline = true
+vim.opt.colorcolumn = 79
 
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.termguicolors = true
-vim.o.colorcolumn = 79
-vim.o.numberwidth = 6
-vim.o.signcolumn = "yes"
-vim.o.cursorline = true
-vim.o.cmdheight = 2
-vim.o.scrolloff = 3
+-- Multiple Windows
+-- Multiple Tab Pages
+-- Terminal
+-- Using the Mouse
+-- Messages and Info
+-- Selecting Text
+-- Editing Text
+-- Tabs and Indenting
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
 
-vim.o.swapfile = false
-vim.o.backup = false
+-- Folding
+-- Diff Mode
+-- Mapping
+-- Reading and Writing Files
+vim.opt.backup = false
+
+-- The Swap File
+vim.opt.swapfile = false
+
+-- Command Line Editing
+vim.opt.cmdheight = 2
+
+-- Executing External Commands
+-- Running Make and Jumping to Errors (Quickfix)
+-- Language Specific
+-- Multi-byte Characters
+-- Various
+vim.opt.signcolumn = "yes"
