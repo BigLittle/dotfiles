@@ -4,7 +4,7 @@ local mapkey = require("utils.keymapper").mapkey
 mapkey("<S-TAB>", "BufferLineCyclePrev", "n") -- Prev buffer
 mapkey("<TAB>", "BufferLineCycleNext", "n") -- Next buffer
 
--- Directory Navigatio}n
+-- Directory Navigation
 mapkey("<leader>m", "NvimTreeFocus", "n")
 mapkey("<leader>e", "NvimTreeToggle", "n")
 

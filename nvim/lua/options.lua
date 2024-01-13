@@ -18,7 +18,7 @@ vim.opt.numberwidth = 6
 -- Syntax, Highlighting and Spelling
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
-vim.opt.colorcolumn = 79
+vim.opt.colorcolumn = {79}
 
 -- Multiple Windows
 -- Multiple Tab Pages
