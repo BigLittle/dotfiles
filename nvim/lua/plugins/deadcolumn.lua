@@ -23,5 +23,5 @@ return {
     extra = {
       follow_tw = nil
     }
-  }    
+  }
 }

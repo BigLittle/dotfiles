@@ -1,20 +1,9 @@
 local mapkey = require("utils.keymapper").mapkey
 
--- Buffer Navigation
-mapkey("<S-TAB>", "BufferLineCyclePrev", "n") -- Prev buffer
-mapkey("<TAB>", "BufferLineCycleNext", "n") -- Next buffer
-
--- Directory Navigation
-mapkey("<leader>m", "NvimTreeFocus", "n")
-mapkey("<leader>e", "NvimTreeToggle", "n")
-
 -- Window Management
-mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
-mapkey("<leader>sh", "split", "n") -- Split Horizontally
 mapkey("<C-w>z", "WindowsMaximize", "n")
 mapkey("<C-w>_", "WindowsMaximizeVertically", "n")
 mapkey("<C-w>|", "WindowsMaximizeHorizontally", "n")
-mapkey("<C-w>=", "WindowsEqualize", "n")
 
 --[[
 -- Indenting

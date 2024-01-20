@@ -1,11 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects"
-  },
+  dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+  build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter.configs").setup({
-      build = ":TSUpdate",
+    local config = require("nvim-treesitter.configs")
+    config.setup({
       indent = { enable = true },
       autotag = { enable = true },
       event = {

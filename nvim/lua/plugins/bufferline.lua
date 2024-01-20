@@ -1,8 +1,12 @@
 return {
   "akinsho/bufferline.nvim",
-  version = "v3.*",
+  version = "*",
+  dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
-    require("bufferline").setup {
+    local bufferline = require("bufferline")
+    vim.keymap.set('n', "<TAB>", function() bufferline.cycle(1) end, { desc = "BufferLine Cycle Next" })
+    vim.keymap.set('n', "<S-TAB>", function() bufferline.cycle(-1) end, { desc = "BufferLine Cycle Prev" })
+    bufferline.setup({
       options = {
         offsets = {
           {
@@ -12,8 +16,9 @@ return {
             separator = "|"
           }
         },
-        separator_style = "slant"
+        diagnostics = "nvim_lsp",
+        separator_style = "slant",
       }
-    }
+    })
   end
 }

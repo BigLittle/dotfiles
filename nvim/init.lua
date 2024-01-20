@@ -1,3 +1,4 @@
+require("options")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,27 +12,25 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("options")
-require("keymaps")
-require("autocmds")
 
-local opts = {
-  defaults = { lazy = false },
-  install = { colorscheme = { "vscode" } },
-  rtp = {
-    disabled_plugins = {
-      "gzip",
-      "matchit",
-      "matchparen",
-      "netrw",
-      "netrwPlugin",
-      "tarPlugin",
-      "tohtml",
-      "tutor",
-      "zipPlugin"
-    }
-  },
-  change_detection = { notify = false }
-}
+--local opts = {
+--  defaults = { lazy = false },
+--  install = { colorscheme = { "vscode" } },
+--  rtp = {
+--    disabled_plugins = {
+--      "gzip",
+--      "matchit",
+--      "matchparen",
+--      "netrw",
+--      "netrwPlugin",
+--      "tarPlugin",
+--      "tohtml",
+--      "tutor",
+--      "zipPlugin"
+--    }
+--  },
+--  change_detection = { notify = false }
+--}
 
-require("lazy").setup("plugins", opts)
+-- require("lazy").setup("plugins", opts)
+require("lazy").setup("plugins")
