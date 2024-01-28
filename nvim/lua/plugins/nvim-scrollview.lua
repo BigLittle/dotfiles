@@ -1,9 +1,9 @@
 return {
-  "dstein64/nvim-scrollview",
-  opts = {
-    excluded_filetypes = {
-      "NvimTree"
+    "dstein64/nvim-scrollview",
+    opts = {
+        excluded_filetypes = {
+            "NvimTree",
+        },
+        current_only = true,
     },
-    current_only = true
-  }
 }

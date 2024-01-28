@@ -5,6 +5,16 @@ mapkey("<C-w>z", "WindowsMaximize", "n")
 mapkey("<C-w>_", "WindowsMaximizeVertically", "n")
 mapkey("<C-w>|", "WindowsMaximizeHorizontally", "n")
 
+
+
+
+
+vim.keymap.set('n', "<F2>", ":retab<CR> :w<CR>", { desc = "Save file"})
+
+
+
+
+
 --[[
 -- Indenting
 mapkey("<", "v", "<gv") -- Shift Indentation to Left
