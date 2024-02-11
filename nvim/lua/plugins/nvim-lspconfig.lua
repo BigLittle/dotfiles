@@ -1,5 +1,5 @@
-local on_attach = require("utils.lsp").on_attach
-local diagnostic_signs = require("utils.lsp").diagnostic_signs
+-- local on_attach = require("utils.lsp").on_attach
+-- local diagnostic_signs = require("utils.lsp").diagnostic_signs
 
 return {
     "neovim/nvim-lspconfig",
@@ -33,33 +33,36 @@ return {
                 )
             end,
         })
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        -- local capabilities = cmp_nvim_lsp.default_capabilities()
         local lspconfig = require("lspconfig")
 
         -- lua
         lspconfig.lua_ls.setup({})
 
         -- python
-        lspconfig.pyright.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-                pyright = {
-                    disableOrganizeImports = false,
-                    analysis = {
-                        useLibraryCodeForTypes = true,
-                        autoSearchPaths = true,
-                        diagnosticMode = "workspace",
-                        autoImportCompletions = true,
-                    },
-                },
-            },
-        })
+        lspconfig.ruff_lsp.setup({})
 
-        for type, icon in pairs(diagnostic_signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-        end
+        -- python
+        -- lspconfig.pyright.setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     settings = {
+        --         pyright = {
+        --             disableOrganizeImports = false,
+        --             analysis = {
+        --                 useLibraryCodeForTypes = true,
+        --                 autoSearchPaths = true,
+        --                 diagnosticMode = "workspace",
+        --                 autoImportCompletions = true,
+        --             },
+        --         },
+        --     },
+        -- })
+
+        -- for type, icon in pairs(diagnostic_signs) do
+        --     local hl = "DiagnosticSign" .. type
+        --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        -- end
     end,
 }
