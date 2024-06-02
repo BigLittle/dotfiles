@@ -8,6 +8,8 @@ return {
         vim.keymap.set("n", "<leader>e", api.tree.toggle, { desc = "NvimTree Toggle" })
         --vim.keymap.set("n", '<leader>m', ":NvimTreeFocus<CR>", {})
         --vim.keymap.set("n", '<leader>e', ":NvimTreeToggle<CR>", {})
-        require("nvim-tree").setup()
+        require("nvim-tree").setup({
+            view = { signcolumn = "no" },
+        })
     end,
 }
