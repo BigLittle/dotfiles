@@ -41,7 +41,7 @@ return {
         lspconfig.lua_ls.setup({})
 
         -- python
-        lspconfig.ruff_lsp.setup({})
+        lspconfig.ruff.setup({})
 
         -- python
         -- lspconfig.pyright.setup({
