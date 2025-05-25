@@ -21,6 +21,7 @@ vim.opt.cursorline = true
 vim.opt.colorcolumn = {79}
 
 -- Multiple Windows
+vim.opt.splitright = true
 -- Multiple Tab Pages
 -- Terminal
 -- Using the Mouse
