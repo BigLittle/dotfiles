@@ -38,7 +38,22 @@ return {
         local lspconfig = require("lspconfig")
 
         -- lua
-        lspconfig.lua_ls.setup({})
+        lspconfig.lua_ls.setup({
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" }, -- Recognize 'vim' as a global variable
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true), -- Use Neovim runtime files as workspace
+                        checkThirdParty = false, -- Disable third-party checks
+                    },
+                    telemetry = {
+                        enable = false, -- Disable telemetry
+                    },
+                },
+            },
+        })
 
         -- python
         lspconfig.ruff.setup({})
