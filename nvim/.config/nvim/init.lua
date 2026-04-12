@@ -79,12 +79,14 @@ vim.pack.add {
     "https://github.com/sitiom/nvim-numbertoggle",
     "https://github.com/karb94/neoscroll.nvim",
     "https://github.com/m4xshen/smartcolumn.nvim",
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
     "https://github.com/christoomey/vim-tmux-navigator",
     "https://github.com/mikavilpas/yazi.nvim",
     "https://github.com/nvim-mini/mini.nvim",
 }
 require("neoscroll").setup()
 require("smartcolumn").setup()
+require("ibl").setup()
 require("mini.icons").setup()
 require("mini.pairs").setup()
 require("mini.trailspace").setup()
@@ -208,8 +210,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 
 -- [[ Keymaps ]] --
-vim.keymap.set("n", "j", "jzz", { desc = "Move down and center" })
-vim.keymap.set("n", "k", "kzz", { desc = "Move up and center" })
+vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true, desc = "Search next and center" })
+vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true, desc = "Search previous and center" })
 
 vim.keymap.set({ "n", "i" }, "<F1>", "<Esc><cmd>Yazi toggle<CR>", { desc = "Resume last yazi session" })
 vim.keymap.set({ "n", "i" }, "<F2>", "<Esc><cmd>w<CR>", { desc = "Save file" })
