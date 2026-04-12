@@ -208,6 +208,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 
 -- [[ Keymaps ]] --
+vim.keymap.set("n", "j", "jzz", { desc = "Move down and center" })
+vim.keymap.set("n", "k", "kzz", { desc = "Move up and center" })
+
 vim.keymap.set({ "n", "i" }, "<F1>", "<Esc><cmd>Yazi toggle<CR>", { desc = "Resume last yazi session" })
 vim.keymap.set({ "n", "i" }, "<F2>", "<Esc><cmd>w<CR>", { desc = "Save file" })
 vim.keymap.set({ "n", "i" }, "<F3>", "<Esc><cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP format" })
