@@ -22,6 +22,7 @@ vim.opt.cursorline = true
 -- vim.opt.colorcolumn = { 81 }
 
 -- Multiple Windows
+vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- Multiple Tab Pages
 -- Terminal
@@ -36,6 +37,12 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 
 -- Folding
+vim.opt.foldenable = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:▽,foldsep: ,foldclose:▶]]
 -- Diff Mode
 -- Mapping
 -- Reading and Writing Files
@@ -53,7 +60,7 @@ vim.opt.cmdheight = 1
 -- Multi-byte Characters
 -- Various
 vim.opt.signcolumn = "yes"
-
+vim.opt.winborder = "rounded"
 
 -- [[ Plugins ]]--
 -- Common dependencies
@@ -71,7 +78,14 @@ vim.pack.add {
     "https://github.com/nvim-lualine/lualine.nvim",
 }
 require("barbar").setup()
-require("statuscol").setup()
+require("statuscol").setup({
+    relculright = true,
+    segments = {
+        { text = { "%s" }, click = "v:lua.ScSa" },
+        { text = { require("statuscol.builtin").lnumfunc, " " }, click = "v:lua.ScLa" },
+        { text = { require("statuscol.builtin").foldfunc, " " }, click = "v:lua.ScFa" },
+    },
+})
 require("lualine").setup()
 
 -- QoL collections
