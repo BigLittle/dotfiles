@@ -76,17 +76,22 @@ vim.pack.add {
     "https://github.com/dstein64/nvim-scrollview",
     "https://github.com/lewis6991/gitsigns.nvim",
     "https://github.com/nvim-lualine/lualine.nvim",
+    "https://github.com/rcarriga/nvim-notify",
 }
 require("barbar").setup()
 require("statuscol").setup({
     relculright = true,
     segments = {
-        { text = { "%s" }, click = "v:lua.ScSa" },
+        { text = { "%s" },                                       click = "v:lua.ScSa" },
         { text = { require("statuscol.builtin").lnumfunc, " " }, click = "v:lua.ScLa" },
         { text = { require("statuscol.builtin").foldfunc, " " }, click = "v:lua.ScFa" },
     },
 })
 require("lualine").setup()
+require("notify").setup({
+    background_colour = "#000000",
+})
+vim.notify = require("notify")
 
 -- QoL collections
 vim.pack.add {
@@ -104,6 +109,8 @@ require("ibl").setup()
 require("mini.icons").setup()
 require("mini.pairs").setup()
 require("mini.trailspace").setup()
+require("mini.pick").setup()
+vim.ui.select = require("mini.pick").ui_select
 
 -- Autocompletion
 vim.pack.add {
@@ -185,8 +192,18 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 -- Copilot
-vim.pack.add({ "https://github.com/github/copilot.vim" })
-
+vim.pack.add {
+    "https://github.com/github/copilot.vim",
+    "https://github.com/CopilotC-Nvim/CopilotChat.nvim",
+}
+require("CopilotChat").setup({
+    show_help = false,
+    headers = {
+        user = ' User',
+        assistant = ' Copilot',
+        tool = ' Tool',
+    },
+})
 
 -- [[ Autocmds ]] --
 vim.api.nvim_create_autocmd("PackChanged", {
@@ -236,3 +253,5 @@ vim.keymap.set({ "n", "i" }, "<A-,>", "<Esc><cmd>BufferPrevious<CR>", { desc = "
 vim.keymap.set({ "n", "i" }, "<A-.>", "<Esc><cmd>BufferNext<CR>", { desc = "Move to next buffer" })
 vim.keymap.set({ "n", "i" }, "<A-<>", "<Esc><cmd>BufferMovePrevious<CR>", { desc = "Re-order to previous buffer" })
 vim.keymap.set({ "n", "i" }, "<A->>", "<Esc><cmd>BufferMoveNext<CR>", { desc = "Re-order to next buffer" })
+
+vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", { desc = "Open Copilot Chat" })
