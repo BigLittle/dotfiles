@@ -66,6 +66,7 @@ vim.opt.winborder = "rounded"
 -- Common dependencies
 vim.pack.add {
     "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/MunifTanjim/nui.nvim",
     "https://github.com/nvim-tree/nvim-web-devicons",
 }
 
@@ -102,6 +103,7 @@ vim.pack.add {
     "https://github.com/christoomey/vim-tmux-navigator",
     "https://github.com/mikavilpas/yazi.nvim",
     "https://github.com/nvim-mini/mini.nvim",
+    "https://github.com/folke/noice.nvim",
 }
 require("neoscroll").setup()
 require("smartcolumn").setup()
@@ -111,6 +113,7 @@ require("mini.pairs").setup()
 require("mini.trailspace").setup()
 require("mini.pick").setup()
 vim.ui.select = require("mini.pick").ui_select
+require("noice").setup()
 
 -- Autocompletion
 vim.pack.add {
@@ -244,7 +247,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true, desc = "Search next and center" })
 vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true, desc = "Search previous and center" })
 
-vim.keymap.set({ "n", "i" }, "<F1>", "<Esc><cmd>Yazi toggle<CR>", { desc = "Resume last yazi session" })
+vim.keymap.set({ "n", "i" }, "<F1>", "<Esc><cmd>Yazi cwd<CR>", { desc = "Open yazi in current working directory" })
 vim.keymap.set({ "n", "i" }, "<F2>", "<Esc><cmd>w<CR>", { desc = "Save file" })
 vim.keymap.set({ "n", "i" }, "<F3>", "<Esc><cmd>lua vim.lsp.buf.format()<CR>", { desc = "LSP format" })
 
@@ -255,3 +258,5 @@ vim.keymap.set({ "n", "i" }, "<A-<>", "<Esc><cmd>BufferMovePrevious<CR>", { desc
 vim.keymap.set({ "n", "i" }, "<A->>", "<Esc><cmd>BufferMoveNext<CR>", { desc = "Re-order to next buffer" })
 
 vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", { desc = "Open Copilot Chat" })
+vim.keymap.set("n", "<leader>e", "<cmd>Yazi toggle<CR>", { desc = "Resume last yazi session" })
+vim.keymap.set("n", "<leader>/", "<cmd>Pick grep_live<CR>", { desc = "Pick from pattern matches with live feedback" })
